@@ -4,8 +4,4 @@
  *  of the MIT license.  See the LICENSE file for details.
  */
 
-dependencies {
-    bundle project(':presales')
-    bundle project(':Enterprise')
-    bundle project(':Quick-Start-Templates')
-}
+rootProject.name = 'Enterprise'

@@ -13,14 +13,17 @@ services:
     - "18000:8000"
     volumes:
     - /opt/SecureSpan/Gateway/node/default/etc/bootstrap/services/restman
-    - ./deployment/build/gateway/deployment-1.0.0.gw7:/opt/docker/rc.d/deployment.gw7
+    #- ./deployment/build/gateway/deployment-1.0.0.gw7:/opt/docker/rc.d/deployment.gw7
+    #- ./Enterprise/build/gateway/bundle/Enterprise-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/enterprise.req.bundle
+    - ./presales/build/gateway/bundle/presales-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/presales.req.bundle
+    - ./Quick-Start-Templates/build/gateway/bundle/Quick-Start-Templates-1.0.0-full.install.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/qst.req.bundle
     secrets:
     - source: license
       target: /opt/SecureSpan/Gateway/node/default/etc/bootstrap/license/license.xml
     environment:
       ACCEPT_LICENSE: "true"
       SSG_ADMIN_USERNAME: "admin"
-      SSG_ADMIN_PASSWORD: "password"
+      SSG_ADMIN_PASSWORD: "7layer"
       ENV.CONTEXT_VARIABLE_PROPERTY.BackgroundEnvironmentService.color: "blue"
 
 secrets:
