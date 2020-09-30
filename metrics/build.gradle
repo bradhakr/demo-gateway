@@ -5,14 +5,16 @@
  */
 
 GatewayExportConfig {
-    folderPath = '/Enterprise'
-    exportEntities = [
-            privateKeys: ["jwtvalidate"],
-            certificates: ["jwtvalidate"]
-    ]
+    folderPath = '/metrics'
 }
 
 GatewaySourceConfig{
     EnvironmentConfig {includeFolder=file('./src/main/gateway/config')}
 
 }
+
+/*
+GatewayImportConfig {
+    bundles = files("./build/gateway/bundle/metrics-1.0.0-full.install.bundle")
+}
+*/

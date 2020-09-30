@@ -7,5 +7,7 @@
 dependencies {
     bundle project(':presales')
     bundle project(':Enterprise')
-    bundle project(':Quick-Start-Templates')
+    bundle project(':Quick Start Templates')
+    bundle project(':metrics')
+    bundle project(':OTK')
 }

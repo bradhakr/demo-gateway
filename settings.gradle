@@ -6,4 +6,4 @@
 
 rootProject.name = 'gw-pripeline'
 
-include 'deployment', 'presales', 'Quick-Start-Templates', 'Enterprise'
+include 'deployment', 'presales', 'Quick Start Templates', 'Enterprise', 'metrics', 'OTK'

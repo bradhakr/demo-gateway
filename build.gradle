@@ -13,20 +13,28 @@ buildscript {
     dependencies {
         classpath "com.ca.apim.gateway:gateway-developer-plugin:0.10.+"
         classpath "com.ca.apim.gateway:gateway-export-plugin:0.10.+"
+        classpath "com.ca.apim.gateway:gateway-import-plugin:0.10.+"
         classpath "com.bmuschko:gradle-docker-plugin:4.6.+"
     }
 }
 
 subprojects {
     apply plugin: 'com.ca.apim.gateway.gateway-developer-plugin'
+    apply plugin: 'com.ca.apim.gateway.gateway-import-plugin'
     if (!project.name.equals('deployment')) {
         apply plugin: 'com.ca.apim.gateway.gateway-export-plugin'
 
         GatewayConnection {
-            url = 'https://ssgstage.security.broadcom.com:9443/restman'
+            url = 'https://devproxy.security.broadcom.com:8443/restman'
             userName = 'admin'
             userPass = '7layer'
         }
+    }
+
+    GatewayImportConnection {
+        url = "https://104.198.76.54:8443"
+        userName = "admin"
+        userPass= "7layer"
     }
 
     group 'getting-started-gateway'
@@ -42,12 +50,15 @@ subprojects {
     }
 }
 
+
+
 wrapper {
     gradleVersion = '4.10.2'
 }
 //
 // Import task types
 import com.bmuschko.gradle.docker.tasks.image.*
+
 
 // Use task types
 task buildDockerImage(type: DockerBuildImage) {
@@ -57,3 +68,4 @@ task buildDockerImage(type: DockerBuildImage) {
     labels = ['org.opencontainers.image.created': new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'", TimeZone.getTimeZone("UTC"))]
     pull.set(true)
 }
+

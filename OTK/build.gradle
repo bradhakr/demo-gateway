@@ -5,5 +5,10 @@
  */
 
 GatewayExportConfig {
-    folderPath = '/Quick-Start-Templates'
+    folderPath = '/OTK'
+}
+
+GatewaySourceConfig{
+    EnvironmentConfig {includeFolder=file('./src/main/gateway/config')}
+
 }
